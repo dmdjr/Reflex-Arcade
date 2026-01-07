@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class PlayerNodesManager : MonoBehaviour
+public class PlayerNodeManager : MonoBehaviour
 {
     private enum NodeState
     {

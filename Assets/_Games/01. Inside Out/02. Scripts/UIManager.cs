@@ -4,20 +4,24 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    private PlayerNodesManager pnManager;
+    private PlayerNodeManager pnManager;
     
     [SerializeField] private Button leftTouchZone;
     [SerializeField] private Button rightTouchZone;
-    [SerializeField] private Button pauseButton;
-    [SerializeField] private TextMeshProUGUI score;
+    // [SerializeField] private Button pauseButton;
+    [SerializeField] private TextMeshProUGUI scoreText;
+
+    private int currentScore;
     
     void Awake()
     {
-        pnManager = FindFirstObjectByType<PlayerNodesManager>();
+        pnManager = FindFirstObjectByType<PlayerNodeManager>();
     }
     
     void Start()
     {
+        scoreText.text = currentScore.ToString();
+        
         leftTouchZone.onClick.AddListener(onLeftClick);
         rightTouchZone.onClick.AddListener(onRightClick);
     }
@@ -30,5 +34,17 @@ public class UIManager : MonoBehaviour
     private void onRightClick()
     {
         pnManager.MoveRightNode();
+    }
+
+    public void AddScoreOnce()
+    {
+        currentScore++;
+        scoreText.text = currentScore.ToString();
+    }
+
+    public void ResetScore()
+    {
+        currentScore = 0;
+        scoreText.text = "0";
     }
 }
