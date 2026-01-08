@@ -14,12 +14,13 @@ public class BallController : MonoBehaviour
     }
     void Update()
     {
+#if UNITY_EDITOR
         // 에디터 테스트용
         if (Input.GetMouseButtonDown(0))
         {
             HandleJump(Input.mousePosition);
         }
-
+#endif
         // 모바일 터치 입력 처리
         if (Input.touchCount > 0)
         {
