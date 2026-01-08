@@ -18,5 +18,7 @@ EditorBuildSettings:
     path: Assets/_Games/02. Color Twin/Color Twin.unity
     guid: b99e054022c874f98bec07b2aaa89167
   m_configObjects:
+    UnityEditor.XR.VisionOS.VisionOSSettings: {fileID: 11400000, guid: 1bb01724dc6cc4d14a3c75c5aef4b841, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: d933a2edc0fd44513a7da96f97570299, type: 2}
   m_UseUCBPForAssetBundles: 0
