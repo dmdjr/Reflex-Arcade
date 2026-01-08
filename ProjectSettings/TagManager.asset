@@ -3,13 +3,7 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 3
-  tags:
-<<<<<<< HEAD
-  - Obstacle
-  - PassPoint
-=======
-  - Line
->>>>>>> 9e8640c7d06e09dc9582bccc327bb6ae5f48f82d
+  tags: []
   layers:
   - Default
   - TransparentFX
