@@ -1,14 +1,22 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 namespace ColorTwin
 {   
     public class FallingCircle : MonoBehaviour
     {
-        public float radius = 125f;
+        public static Action onSpriteMatch;
+        public static Action onSpriteMismatch;
+
+        private float radius = 125f;
   
-        public float fallSpeed = 300f;
+        public float fallSpeed = 500f;
+        public float resetYPos = 1325.5f;
+        public float minInterval = 1f;
+        public float maxInterval = 3f;
 
         private RectTransform rectTransform;
         public RectTransform target; // BaseCircle's RectTransform
@@ -17,9 +25,14 @@ namespace ColorTwin
         public Sprite[] circleSprites; // Array of possible circle sprites
         public float appearanceRate = 0.3f; // chance to appear
 
+        private Image image;
+
+        public bool isMoving = false; // is waiting to fall
+
         private void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
+            image = GetComponent<Image>();
         }
 
         private void OnEnable()
@@ -33,7 +46,10 @@ namespace ColorTwin
             while (true)
             {
                 // 1. Falling movement
-                rectTransform.anchoredPosition += Vector2.down * fallSpeed * Time.deltaTime;
+                if (isMoving)
+                {
+                    rectTransform.anchoredPosition += Vector2.down * fallSpeed * Time.deltaTime;                
+                }
 
                 // 2. Distance calculation
                 float yDistance = Mathf.Abs(rectTransform.localPosition.y - target.localPosition.y);
@@ -59,28 +75,37 @@ namespace ColorTwin
         {
             // Randomly assign sprite based on appearance rate
             float randomValue = Random.Range(0f, 1f);
+
             if (randomValue <= appearanceRate && circleSprites.Length > 0)
             {
                 int randomIndex = Random.Range(0, circleSprites.Length);
-                GetComponent<Image>().sprite = circleSprites[randomIndex];
+                image.sprite = circleSprites[randomIndex];
+                image.color = new Color(1, 1, 1, 1); // Make visible
             }
             else
             {
-                GetComponent<Image>().sprite = null;
+                image.sprite = null;
+                image.color = new Color(1, 1, 1, 0); // Make invisible
             }
+
+            isMoving = false;
         }
 
         void CheckImageMatch()
         {
-            if (gameObject.GetComponent<Image>().sprite == target.GetComponent<Image>().sprite)
+            if (image.sprite == target.GetComponent<Image>().sprite)
             {
                 Debug.Log("Color Match!");
-                // Add score or other logic here
+                onSpriteMatch?.Invoke();
+            }
+            else if (image.sprite != null)
+            {
+                Debug.Log("Color Mismatch!");
+                onSpriteMismatch?.Invoke();
             }
             else
             {
-                Debug.Log("Color Mismatch! or No Color!");
-                // Add penalty or other logic here
+                // No falling circle (not appeared), do nothing
             }
         }
     }
