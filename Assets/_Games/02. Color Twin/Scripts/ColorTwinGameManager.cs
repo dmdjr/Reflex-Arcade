@@ -14,9 +14,11 @@ namespace ColorTwin
         public FallingCircle[] fallingCirclesR;
         private int currentLIndex = 0;
         private int currentRIndex = 0;
-        private GameObject currentCircle;
 
         private float distanceThreshold = 350f;
+        
+        public float minSpawnDelay = 0f;
+        public float maxSpawnDelay = 1f;
 
         void Start()
         {
@@ -45,11 +47,11 @@ namespace ColorTwin
         {
             while (true)
             {
-                yield return new WaitForSeconds(Random.Range(0f, 1f));
+                yield return new WaitForSeconds(Random.Range(minSpawnDelay, maxSpawnDelay));
 
                 // 1. Activate the current circle
-                currentCircle = fallingCircles[currentIndex].gameObject;
-
+                GameObject currentCircle = fallingCircles[currentIndex].gameObject;
+        
                 foreach (var circle in fallingCircles)
                 {
                     // Wait until other circles have moved a certain distance away

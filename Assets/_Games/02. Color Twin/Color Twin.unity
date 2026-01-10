@@ -263,7 +263,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c9d8df2813fc49f19ce16d97161e707, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 338401077}
   fallingCirclesL:
   - {fileID: 627729375}
   - {fileID: 1079223983}
@@ -272,6 +271,8 @@ MonoBehaviour:
   - {fileID: 849448546}
   - {fileID: 1142093062}
   - {fileID: 1518928710}
+  minSpawnDelay: 0
+  maxSpawnDelay: 1
 --- !u!4 &135075311
 Transform:
   m_ObjectHideFlags: 0
@@ -1117,7 +1118,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba2fc50bbb8c4714bb9736e42fb2dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 500
+  fallSpeed: 1000
   resetYPos: 1325.5
   minInterval: 1
   maxInterval: 3
@@ -1418,7 +1419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba2fc50bbb8c4714bb9736e42fb2dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 500
+  fallSpeed: 1000
   resetYPos: 1325.5
   minInterval: 1
   maxInterval: 3
@@ -1467,6 +1468,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 849448544}
   m_CullTransparentMesh: 1
+--- !u!1 &960375330
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 960375332}
+  - component: {fileID: 960375331}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &960375331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960375330}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dacb97bf3ed74f12bd5c2a624bd47f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreText: {fileID: 338401077}
+--- !u!4 &960375332
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 960375330}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1079223978
 GameObject:
   m_ObjectHideFlags: 0
@@ -1555,7 +1601,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba2fc50bbb8c4714bb9736e42fb2dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 500
+  fallSpeed: 1000
   resetYPos: 1325.5
   minInterval: 1
   maxInterval: 3
@@ -1616,7 +1662,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba2fc50bbb8c4714bb9736e42fb2dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 500
+  fallSpeed: 1000
   resetYPos: 1325.5
   minInterval: 1
   maxInterval: 3
@@ -1896,7 +1942,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba2fc50bbb8c4714bb9736e42fb2dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 500
+  fallSpeed: 1000
   resetYPos: 1325.5
   minInterval: 1
   maxInterval: 3
@@ -2165,7 +2211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba2fc50bbb8c4714bb9736e42fb2dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 500
+  fallSpeed: 1000
   resetYPos: 1325.5
   minInterval: 1
   maxInterval: 3
@@ -2781,3 +2827,4 @@ SceneRoots:
   - {fileID: 135858959}
   - {fileID: 1556954915}
   - {fileID: 135075311}
+  - {fileID: 960375332}

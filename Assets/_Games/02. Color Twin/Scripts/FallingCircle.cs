@@ -5,26 +5,22 @@ using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
 namespace ColorTwin
-{   
+{
     public class FallingCircle : MonoBehaviour
     {
         public static Action onSpriteMatch;
         public static Action onSpriteMismatch;
 
-        private float radius = 125f;
-  
         public float fallSpeed = 500f;
         public float resetYPos = 1325.5f;
-        public float minInterval = 1f;
-        public float maxInterval = 3f;
+        public float appearanceRate = 0.3f; // chance to appear
 
         private RectTransform rectTransform;
         public RectTransform target; // BaseCircle's RectTransform
         private float judgeDistance = 250f;
 
         public Sprite[] circleSprites; // Array of possible circle sprites
-        public float appearanceRate = 0.3f; // chance to appear
-
+       
         private Image image;
 
         public bool isMoving = false;
@@ -48,7 +44,7 @@ namespace ColorTwin
                 // 1. Falling movement
                 if (isMoving)
                 {
-                    rectTransform.anchoredPosition += Vector2.down * fallSpeed * Time.deltaTime;                
+                    rectTransform.anchoredPosition += Vector2.down * fallSpeed * Time.deltaTime;
                 }
 
                 // 2. Distance calculation
@@ -67,7 +63,7 @@ namespace ColorTwin
 
         void ResetPosition()
         {
-            rectTransform.localPosition = new Vector2(0f, 1325.5f);
+            rectTransform.localPosition = new Vector2(0f, resetYPos);
             SetupFallingCircle();
         }
 
@@ -109,4 +105,4 @@ namespace ColorTwin
             }
         }
     }
-}    
+}
