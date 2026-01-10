@@ -63,4 +63,13 @@ public class BallController : MonoBehaviour
             isJumping = false;
         }
     }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.CompareTag("Obstacle"))
+        {
+            Debug.Log("Game Over");
+            GravityGameManager.Instance.GameOver();
+        }
+    }
 }
