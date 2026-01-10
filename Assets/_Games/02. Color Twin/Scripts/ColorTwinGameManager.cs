@@ -7,22 +7,21 @@ namespace ColorTwin
 {
     public class ColorTwinGameManager : MonoBehaviour
     {
-        public TextMeshProUGUI scoreText;
-        public int Score { get; private set; }
+        // public TextMeshProUGUI scoreText;
+        // public int Score { get; private set; }
 
         public FallingCircle[] fallingCirclesL;
         public FallingCircle[] fallingCirclesR;
         private int currentLIndex = 0;
         private int currentRIndex = 0;
         private GameObject currentCircle;
-        private GameObject nextCircle;
 
         private float distanceThreshold = 350f;
 
         void Start()
         {
-            Score = 0;
-            scoreText.text = Score.ToString();
+            // Score = 0;
+            // scoreText.text = Score.ToString();
 
             StartCoroutine(SpawnLoop(fallingCirclesL, currentLIndex));
             StartCoroutine(SpawnLoop(fallingCirclesR, currentRIndex));
@@ -30,13 +29,13 @@ namespace ColorTwin
 
         private void OnEnable()
         {
-            FallingCircle.onSpriteMatch += HandleSpriteMatch;
+            // FallingCircle.onSpriteMatch += HandleSpriteMatch;
             FallingCircle.onSpriteMismatch += HandleSpriteMismatch;
         }
 
         private void OnDisable()
         {
-            FallingCircle.onSpriteMatch -= HandleSpriteMatch;
+            // FallingCircle.onSpriteMatch -= HandleSpriteMatch;
             FallingCircle.onSpriteMismatch -= HandleSpriteMismatch;
 
             StopAllCoroutines();
@@ -69,26 +68,26 @@ namespace ColorTwin
             }
         }
 
-        private void UpdateScoreUI()
-        {
-            scoreText.text = Score.ToString();
-        }
+        // private void UpdateScoreUI()
+        // {
+        //     scoreText.text = Score.ToString();
+        // }
 
-        private void AddScore()
-        {
-            Score++;
-        }
+        // private void AddScore()
+        // {
+        //     Score++;
+        // }
 
         private void GameOver()
         {
             Debug.Log("Game Over!");
         }
 
-        private void HandleSpriteMatch()
-        {
-            AddScore();
-            UpdateScoreUI();
-        }
+        // private void HandleSpriteMatch()
+        // {
+        //     AddScore();
+        //     UpdateScoreUI();
+        // }
 
         private void HandleSpriteMismatch()
         {

@@ -27,7 +27,7 @@ namespace ColorTwin
 
         private Image image;
 
-        public bool isMoving = false; // is waiting to fall
+        public bool isMoving = false;
 
         private void Awake()
         {
