@@ -54,7 +54,6 @@ namespace ColorTwin
                 if (yDistance <= judgeDistance)
                 {
                     CheckImageMatch();
-                    ResetPosition();
                 }
 
                 yield return null;
@@ -91,12 +90,11 @@ namespace ColorTwin
         {
             if (image.sprite == target.GetComponent<Image>().sprite)
             {
-                Debug.Log("Color Match!");
                 onSpriteMatch?.Invoke();
+                ResetPosition();
             }
             else if (image.sprite != null)
             {
-                Debug.Log("Color Mismatch!");
                 onSpriteMismatch?.Invoke();
             }
             else

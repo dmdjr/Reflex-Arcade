@@ -70,26 +70,12 @@ namespace ColorTwin
             }
         }
 
-        // private void UpdateScoreUI()
-        // {
-        //     scoreText.text = Score.ToString();
-        // }
-
-        // private void AddScore()
-        // {
-        //     Score++;
-        // }
-
         private void GameOver()
         {
             Debug.Log("Game Over!");
+            // Stop game play
+            Time.timeScale = 0f;
         }
-
-        // private void HandleSpriteMatch()
-        // {
-        //     AddScore();
-        //     UpdateScoreUI();
-        // }
 
         private void HandleSpriteMismatch()
         {
