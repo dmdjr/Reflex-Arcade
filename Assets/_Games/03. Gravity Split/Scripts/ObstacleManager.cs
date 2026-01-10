@@ -1,6 +1,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/* ======================================================================
+/* 위(Red), 아래(Green) 장애물들의 생성과 무한 배치를 관리하는 클래스
+ * * [Method Summary]
+ * 1. SpawnObstacles : 게임 시작 시 지정된 개수만큼 장애물을 초기 생성하고 리스트에 등록
+ * 2. CheckPosition  : (Update) 활성화된 모든 장애물의 위치를 매 프레임 검사
+ * 3. Reposition     : 화면 왼쪽 밖으로 나간 장애물을 찾아 오른쪽 끝으로 랜덤 재배치
+/* ====================================================================== */
+
 public class ObstacleManager : MonoBehaviour
 {
     public GameObject redPrefab;
@@ -32,19 +40,19 @@ public class ObstacleManager : MonoBehaviour
             float randomY = yCandidates[Random.Range(0, yCandidates.Length)];
             obj.transform.position = new Vector3(currentX, randomY, 0);
             list.Add(obj);
-            float randomGap = Random.Range(1f, 4.5f);
+            float randomGap = Random.Range(2f, 4f);
             currentX += randomGap;
         }
     }
     void Update()
     {
         // 빨간색 검사
-        CheckAndReposition(redObstacles, redYPosCandidates);
+        CheckPosition(redObstacles, redYPosCandidates);
 
         // 초록색 검사
-        CheckAndReposition(greenObstacles, greenYPosCandidates);
+        CheckPosition(greenObstacles, greenYPosCandidates);
     }
-    void CheckAndReposition(List<GameObject> targetList, float[] yCandidates)
+    void CheckPosition(List<GameObject> targetList, float[] yCandidates)
     {
         foreach (var obj in targetList)
         {
@@ -67,7 +75,7 @@ public class ObstacleManager : MonoBehaviour
             }
         }
 
-        float nextGap = Random.Range(1.5f, 3.0f);
+        float nextGap = Random.Range(2f, 4f);
 
         // 내 그룹의 Y 후보군 중에서 랜덤 선택
         float randomY = yCandidates[Random.Range(0, yCandidates.Length)];
@@ -76,3 +84,4 @@ public class ObstacleManager : MonoBehaviour
     }
 
 }
+
