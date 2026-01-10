@@ -6,6 +6,7 @@ public class GravityGameManager : MonoBehaviour
 {
     public static GravityGameManager Instance;
     [SerializeField] private GameObject gameOverUI;
+    [SerializeField] private GameoverUI scoreUI;
     [SerializeField] private TextMeshProUGUI scoreText;
 
     private int currentScore = 0;
@@ -16,6 +17,7 @@ public class GravityGameManager : MonoBehaviour
         {
             Instance = this;
         }
+        Time.timeScale = 1f;
     }
 
     public void AddScore(int amount)
@@ -31,11 +33,22 @@ public class GravityGameManager : MonoBehaviour
     public void GameOver()
     {
         Time.timeScale = 0f;
+        int bestScore = 0;
+
+        if (DataManager.Instance != null)
+        {
+            DataManager.Instance.CheckAndSaveBestScore(GameType.GravitySplit, currentScore);
+        }
+
+
+        if (DataManager.Instance != null)
+        {
+            bestScore = DataManager.Instance.GetBestScore(GameType.GravitySplit);
+        }
         if (gameOverUI != null)
         {
             gameOverUI.SetActive(true);
+            scoreUI.ShowResult(currentScore, bestScore);
         }
-        // TODO: 점수 저장 등 데이터 처리 (DataManager 호출)
-        // DataManager.Instance.CheckAndSaveBestScore(...);
     }
 }

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /* ======================================================================
-/* 위(Red), 아래(Green) 장애물들의 생성과 무한 배치를 관리하는 클래스
+/* 위(Red), 아래(Green) 장애물들의 생성과 무한 랜덤 배치를 관리하는 클래스
  * * [Method Summary]
  * 1. SpawnObstacles : 게임 시작 시 지정된 개수만큼 장애물을 초기 생성하고 리스트에 등록
  * 2. CheckPosition  : (Update) 활성화된 모든 장애물의 위치를 매 프레임 검사
