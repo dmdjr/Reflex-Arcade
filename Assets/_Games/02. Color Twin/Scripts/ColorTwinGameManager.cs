@@ -5,8 +5,10 @@ using UnityEngine;
 
 namespace ColorTwin
 {
-    public class ColorTwinGameManager : MonoBehaviour
+    public class ColorTwinGameManager : BaseGameManager
     {
+        public static ColorTwinGameManager Instance;
+        
         public FallingCircle[] fallingCirclesL;
         public FallingCircle[] fallingCirclesR;
         private int currentLIndex = 0;
@@ -17,8 +19,29 @@ namespace ColorTwin
         public float minSpawnDelay = 0f;
         public float maxSpawnDelay = 1f;
 
+        [SerializeField] private TutorialUI tutorialUI;
+        
+        void Awake()
+        {
+            if (Instance == null)
+            {
+                Instance = this;
+            }
+        }
         void Start()
         {
+            // that game type's tutorial first time check
+            if (DataManager.Instance != null && DataManager.Instance.IsFirstSeen(GameType.GravitySplit))
+            {
+                tutorialUI.Open(GameType.GravitySplit, StartGame);
+            }
+            else // If tutorial has been seen, start game without showing UI
+            {
+                tutorialUI.gameObject.SetActive(false);
+
+                StartGame();
+            }
+            
             StartCoroutine(SpawnLoop(fallingCirclesL, currentLIndex));
             StartCoroutine(SpawnLoop(fallingCirclesR, currentRIndex));
         }

@@ -25,6 +25,7 @@ namespace ColorTwin
 
         private void OnColorButtonClicked(Sprite sprite)
         {
+            if (!ColorTwinGameManager.Instance.IsGameRunning) return;
             baseCircle.gameObject.GetComponent<Image>().sprite = sprite;
         }
     }
