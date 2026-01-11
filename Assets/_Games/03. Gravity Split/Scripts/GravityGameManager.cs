@@ -18,7 +18,6 @@ namespace GravitySplit
             {
                 Instance = this;
             }
-            Time.timeScale = 1f;
         }
 
         public void AddScore(int amount)
