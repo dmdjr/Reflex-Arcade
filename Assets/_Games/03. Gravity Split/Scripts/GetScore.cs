@@ -1,12 +1,14 @@
 using UnityEngine;
-
-public class GetScore : MonoBehaviour
+namespace GravitySplit
 {
-    void OnTriggerEnter2D(Collider2D collision)
+    public class GetScore : MonoBehaviour
     {
-        if (collision.gameObject.CompareTag("Obstacle"))
+        void OnTriggerEnter2D(Collider2D collision)
         {
-            GravityGameManager.Instance.AddScore(1);
+            if (collision.gameObject.CompareTag("Obstacle"))
+            {
+                GravityGameManager.Instance.AddScore(1);
+            }
         }
     }
 }

@@ -1,10 +1,13 @@
 using UnityEngine;
 
-public class Obstacle : MonoBehaviour
+namespace GravitySplit
 {
-    [SerializeField] private float movespeed = 5f;
-    void Update()
+    public class Obstacle : MonoBehaviour
     {
-        transform.Translate(Vector2.left * movespeed * Time.deltaTime);
+        [SerializeField] private float movespeed = 5f;
+        void Update()
+        {
+            transform.Translate(Vector2.left * movespeed * Time.deltaTime);
+        }
     }
 }

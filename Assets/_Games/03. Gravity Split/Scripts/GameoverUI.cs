@@ -1,20 +1,22 @@
 using TMPro;
 using UnityEngine;
-
-public class GameoverUI : MonoBehaviour
+namespace GravitySplit
 {
-    [SerializeField] private TextMeshProUGUI currentScoreText;
-    [SerializeField] private TextMeshProUGUI bestScoreText;
-
-    public void ShowResult(int currentScore, int bestScore)
+    public class GameoverUI : MonoBehaviour
     {
-        if (currentScoreText != null)
+        [SerializeField] private TextMeshProUGUI currentScoreText;
+        [SerializeField] private TextMeshProUGUI bestScoreText;
+
+        public void ShowResult(int currentScore, int bestScore)
         {
-            currentScoreText.text = "Score " + currentScore.ToString();
-        }
-        if (bestScoreText != null)
-        {
-            bestScoreText.text = "Best " + bestScore.ToString();
+            if (currentScoreText != null)
+            {
+                currentScoreText.text = "Score " + currentScore.ToString();
+            }
+            if (bestScoreText != null)
+            {
+                bestScoreText.text = "Best " + bestScore.ToString();
+            }
         }
     }
 }
