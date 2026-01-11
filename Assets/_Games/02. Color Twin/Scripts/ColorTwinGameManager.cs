@@ -7,9 +7,6 @@ namespace ColorTwin
 {
     public class ColorTwinGameManager : MonoBehaviour
     {
-        // public TextMeshProUGUI scoreText;
-        // public int Score { get; private set; }
-
         public FallingCircle[] fallingCirclesL;
         public FallingCircle[] fallingCirclesR;
         private int currentLIndex = 0;
@@ -22,9 +19,6 @@ namespace ColorTwin
 
         void Start()
         {
-            // Score = 0;
-            // scoreText.text = Score.ToString();
-
             StartCoroutine(SpawnLoop(fallingCirclesL, currentLIndex));
             StartCoroutine(SpawnLoop(fallingCirclesR, currentRIndex));
         }
@@ -75,6 +69,7 @@ namespace ColorTwin
             Debug.Log("Game Over!");
             // Stop game play
             Time.timeScale = 0f;
+            StopAllCoroutines();
         }
 
         private void HandleSpriteMismatch()

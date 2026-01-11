@@ -25,6 +25,8 @@ namespace ColorTwin
 
         public bool isMoving = false;
 
+        Coroutine checkAndMoveCoroutine;
+
         private void Awake()
         {
             rectTransform = GetComponent<RectTransform>();
@@ -33,8 +35,14 @@ namespace ColorTwin
 
         private void OnEnable()
         {
-            StartCoroutine(CheckDistanceAndMove());
+            checkAndMoveCoroutine = StartCoroutine(CheckDistanceAndMove());
             SetupFallingCircle();
+            onSpriteMismatch += HandleSpriteMismatch;
+        }
+
+        private void OnDisable()
+        {
+            onSpriteMismatch -= HandleSpriteMismatch;
         }
 
         IEnumerator CheckDistanceAndMove()
@@ -97,10 +105,15 @@ namespace ColorTwin
             {
                 onSpriteMismatch?.Invoke();
             }
-            else
+            else // image.sprite == null
             {
                 // No falling circle (not appeared), do nothing
             }
+        }
+
+        void HandleSpriteMismatch()
+        {
+            StopCoroutine(checkAndMoveCoroutine);
         }
     }
 }
