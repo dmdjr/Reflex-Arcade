@@ -16,6 +16,7 @@ namespace GravitySplit
         }
         void Update()
         {
+            if (GravityGameManager.Instance.IsGameRunning == false) return;
 #if UNITY_EDITOR
             // 에디터 테스트용
             if (Input.GetMouseButtonDown(0))

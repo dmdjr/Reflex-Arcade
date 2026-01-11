@@ -1,16 +1,18 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
 namespace GravitySplit
 {
-    public class GravityGameManager : MonoBehaviour
+    public class GravityGameManager : BaseGameManager
     {
         public static GravityGameManager Instance;
         [SerializeField] private GameObject gameOverUI;
         [SerializeField] private GameoverUI scoreUI;
         [SerializeField] private TextMeshProUGUI scoreText;
+        [SerializeField] private TutorialUI tutorialUI;
 
         private int currentScore = 0;
+
 
         void Awake()
         {
@@ -20,6 +22,22 @@ namespace GravitySplit
             }
         }
 
+        void Start()
+        {
+            // 해당 게임 타입의 튜토리얼을 처음 보는지 확인 후 열기
+            if (DataManager.Instance != null && DataManager.Instance.IsFirstSeen(GameType.GravitySplit))
+            {
+                tutorialUI.Open(GameType.GravitySplit,StartGame);
+            }
+
+            // 튜토리얼을 봤다면 UI 열지않고 바로 게임 시작
+            else
+            {
+                tutorialUI.gameObject.SetActive(false);
+
+                StartGame();
+            }
+        }
         public void AddScore(int amount)
         {
             currentScore += amount;
@@ -29,6 +47,7 @@ namespace GravitySplit
             }
             Debug.Log("점수 획득! 현재 점수: " + currentScore);
         }
+
         public void GameOver()
         {
             Time.timeScale = 0f;
@@ -50,6 +69,7 @@ namespace GravitySplit
                 scoreUI.ShowResult(currentScore, bestScore);
             }
         }
+        
     }
 
 }
