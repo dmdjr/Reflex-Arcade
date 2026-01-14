@@ -31,9 +31,9 @@ namespace ColorTwin
         void Start()
         {
             // that game type's tutorial first time check
-            if (DataManager.Instance != null && DataManager.Instance.IsFirstSeen(GameType.GravitySplit))
+            if (DataManager.Instance != null && DataManager.Instance.IsFirstSeen(GameType.ColorTwin))
             {
-                tutorialUI.Open(GameType.GravitySplit, StartGame);
+                tutorialUI.Open(GameType.ColorTwin, StartGame);
             }
             else // If tutorial has been seen, start game without showing UI
             {
