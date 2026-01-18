@@ -6,8 +6,7 @@ public class StagePopupManager : MonoBehaviour
 
     [SerializeField] private GameObject popupObject; // 켜고 끌 파란 상자 (Popup_UI)
     [SerializeField] RectTransform popupStartPos; // 위치를 옮길 파란 상자의 Transform
-
-    [SerializeField] private Vector3 offset = new Vector3(0, 50, 0); // 자물쇠보다 살짝 위에 뜨게
+    [SerializeField] private Vector3 offset = new Vector3(0, 50, 0); // 잠김 아이콘보다 살짝 위에 뜨게
     void Awake()
     {
         Instance = this;
