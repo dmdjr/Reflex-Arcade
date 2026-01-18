@@ -13,7 +13,16 @@ public class StagePopupManager : MonoBehaviour
         Instance = this;
         Hide();
     }
-
+    void Update()
+    {
+        if (popupObject.activeSelf)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                Hide();
+            }
+        }
+    }
     public void Show(Vector3 targetPos)
     {
         popupObject.SetActive(true);
