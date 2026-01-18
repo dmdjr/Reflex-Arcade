@@ -52,6 +52,23 @@ public class StageLockView : MonoBehaviour
 
         if (lockIcon != null) lockIcon.SetActive(!isUnlocked);
 
+        if (!isUnlocked)
+        {
+            Button lockBtn = lockIcon.GetComponent<Button>();
+            if (lockBtn != null)
+            {
+                lockBtn.onClick.RemoveAllListeners();
+                lockBtn.onClick.AddListener(OnLockClick);
+            }
+        }
+
         if (playButton != null) playButton.gameObject.SetActive(isUnlocked);
+    }
+    private void OnLockClick()
+    {
+        if (StagePopupManager.Instance != null && lockIcon != null)
+        {
+            StagePopupManager.Instance.Show(lockIcon.transform.position);
+        }
     }
 }
