@@ -95,9 +95,12 @@ namespace ColorTwin
             StopAllCoroutines();
         }
 
-        private void HandleSpriteMismatch()
+        private void HandleSpriteMismatch(FallingCircle targetCircle)
         {
-            GameOver();
+            if (targetCircle != null)
+            {
+                GameOver();
+            }
         }
     }
 }

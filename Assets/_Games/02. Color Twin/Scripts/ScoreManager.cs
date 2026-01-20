@@ -64,8 +64,9 @@ namespace ColorTwin
             UpdateScoreUI();
         }
 
-        private void HandleMisSpriteMatch()
+        private void HandleMisSpriteMatch(FallingCircle targetCircle)
         {
+            if (targetCircle == null) return;
             SaveScore();
             ShowGameOverUI();
         }

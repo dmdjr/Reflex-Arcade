@@ -9,7 +9,7 @@ namespace ColorTwin
     public class FallingCircle : MonoBehaviour
     {
         public static Action onSpriteMatch;
-        public static Action onSpriteMismatch;
+        public static Action<FallingCircle> onSpriteMismatch;
 
         public float fallSpeed = 500f;
         public float resetYPos = 1325.5f;
@@ -103,7 +103,7 @@ namespace ColorTwin
             }
             else if (image.sprite != null)
             {
-                onSpriteMismatch?.Invoke();
+                onSpriteMismatch?.Invoke(this);
             }
             else // image.sprite == null
             {
@@ -111,9 +111,14 @@ namespace ColorTwin
             }
         }
 
-        void HandleSpriteMismatch()
+        void HandleSpriteMismatch(FallingCircle targetCircle)
         {
+            // all circle stop
             StopCoroutine(checkAndMoveCoroutine);
+            if (targetCircle == this) // target hightlight
+            {
+                HitEffect.Instance.PlayHighlight(transform);
+            }
         }
     }
 }
