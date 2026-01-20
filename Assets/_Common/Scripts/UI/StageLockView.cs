@@ -3,13 +3,14 @@ using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
-/* ======================================================================
-/* 스테이지 진입 버튼의 잠금(Lock) 및 해제(Unlock) 상태를 제어하는 클래스
- * * [Method Summary]
- * 1. Start       : 게임 시작 시 현재 데이터를 기반으로 버튼 상태 초기화
- * 2. CheckUnlock : 필요 조건(prerequisiteGames)들이 모두 목표 점수(Config)를 넘었는지 검사
- * 3. UpdateUI    : 검사 결과에 따라 잠금 아이콘을 끄고 플레이 버튼을 활성화
-/* ====================================================================== */
+/* ==================================================================================
+ * [Class]: StageLockView
+ * [Role] : 개별 스테이지의 잠금 상태를 관리하고, 클릭 시 해금 조건을 팝업 매니저에게 '주문'하는 역할
+ * * [Flow]
+ * 1. CheckUnlock : Config(점수표)와 DataManager(내 점수)를 비교하여 해금 여부 판단
+ * 2. UpdateUI    : 판단 결과에 따라 자물쇠를 켜거나, 플레이 버튼을 활성화
+ * 3. OnLockClick : 잠겨있다면, 필요한 조건 리스트(prerequisiteGames)를 매니저에게 전달하며 팝업 요청
+ * ================================================================================== */
 
 public class StageLockView : MonoBehaviour
 {
@@ -68,7 +69,7 @@ public class StageLockView : MonoBehaviour
     {
         if (StagePopupManager.Instance != null && lockIcon != null)
         {
-            StagePopupManager.Instance.Show(lockIcon.transform.position);
+            StagePopupManager.Instance.Show(lockIcon.transform.position,prerequisiteGames);
         }
     }
 }

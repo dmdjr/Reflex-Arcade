@@ -146,6 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6866256552867190760}
   - component: {fileID: 902850587222600691}
+  - component: {fileID: -62407504484595416}
   m_Layer: 5
   m_Name: Condition_Row
   m_TagString: Untagged
@@ -194,6 +195,22 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &-62407504484595416
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4841292366177232687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21247fa0fb0a848e6ab3ca2f1355e46f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  iconImage: {fileID: 6345013136740234206}
+  conditionText: {fileID: 4644756639369471549}
+  defaultColor: {r: 1, g: 1, b: 1, a: 1}
+  clearColor: {r: 0.11764706, g: 0.5647059, b: 1, a: 1}
 --- !u!1 &5278325846440089651
 GameObject:
   m_ObjectHideFlags: 0
