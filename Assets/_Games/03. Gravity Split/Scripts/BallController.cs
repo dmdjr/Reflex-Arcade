@@ -71,8 +71,8 @@ namespace GravitySplit
         {
             if (collision.gameObject.CompareTag("Obstacle"))
             {
-                Debug.Log("Game Over");
                 GravityGameManager.Instance.GameOver();
+                HitEffect.Instance.PlayHighlight(collision.transform);
             }
         }
     }
