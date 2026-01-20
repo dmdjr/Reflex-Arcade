@@ -20,9 +20,9 @@ public class HitEffect : MonoBehaviour
     IEnumerator PulseRoutine(Transform target)
     {
         Vector3 originalScale = target.localScale;
-        Vector3 targetScale = originalScale * 1.2f;
+        Vector3 targetScale = originalScale * 0.8f;
 
-        float speed = 3f;
+        float speed = 4f;
         float time = 0;
 
         while (true)

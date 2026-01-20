@@ -16,6 +16,8 @@ public class GameoverUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI currentScoreText;
     [SerializeField] private TextMeshProUGUI bestScoreText;
 
+    [SerializeField] private GameObject inGameScorePanel; // 상단 점수 UI (ScoreBar) 연결용
+
     public void ShowResult(int currentScore, int bestScore)
     {
         if (currentScoreText != null)
@@ -25,6 +27,11 @@ public class GameoverUI : MonoBehaviour
         if (bestScoreText != null)
         {
             bestScoreText.text = "Best " + bestScore.ToString();
+        }
+
+        if (inGameScorePanel != null)
+        {
+            inGameScorePanel.SetActive(false);
         }
     }
 
