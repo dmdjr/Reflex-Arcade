@@ -7,6 +7,7 @@ using UnityEngine;
  * 1. StartGame        : 게임 시작 코루틴을 호출하여 안전하게 게임을 시작
  * 2. StartGameRoutine : 0.1초 딜레이를 두어 UI 터치 입력이 인게임 동작으로 이어지는 것을 방지하고, 
  * IsGameRunning을 true로 변경하며 시간을 흐르게 함(TimeScale 1)
+ * 3. OnApplicationFocus : 광고 보고 돌아왔을 때 시간이 다시 흐르는 것을 방지 
 /* ====================================================================== */
 
 public class BaseGameManager : MonoBehaviour
