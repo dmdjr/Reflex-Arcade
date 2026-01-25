@@ -7,7 +7,11 @@ using UnityEngine.SceneManagement;
  * ====================================================================== */
 public class LobbyManager : MonoBehaviour
 {
-
+    void Start()
+    {
+        // 게임 시작하면 하단 배너광고 상시 띄우기
+        AdManager.Instance.ShowBanner();
+    }
     void Awake()
     {
 #if !UNITY_EDITOR
@@ -16,6 +20,8 @@ public class LobbyManager : MonoBehaviour
     }
     public void LoadGameScene(string sceneName)
     {
+        // 게임 씬으로 넘어가면 하단 배너 광고 없애기
+        AdManager.Instance.HideBanner();
         SceneManager.LoadScene(sceneName);
     }
 

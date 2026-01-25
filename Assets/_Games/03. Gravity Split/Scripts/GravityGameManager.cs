@@ -61,15 +61,20 @@ namespace GravitySplit
                 DataManager.Instance.CheckAndSaveBestScore(GameType.GravitySplit, currentScore);
             }
 
-
             if (DataManager.Instance != null)
             {
                 bestScore = DataManager.Instance.GetBestScore(GameType.GravitySplit);
             }
+            
             if (gameOverUI != null)
             {
                 gameOverUI.SetActive(true);
                 scoreUI.ShowResult(currentScore, bestScore);
+            }
+
+            if (AdManager.Instance != null)
+            {
+                AdManager.Instance.ScheduleInterstitial();
             }
         }
 
