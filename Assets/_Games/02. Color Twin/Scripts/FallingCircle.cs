@@ -98,6 +98,10 @@ namespace ColorTwin
         {
             if (image.sprite == target.GetComponent<Image>().sprite)
             {
+                if (SoundManager.Instance != null)
+                {   
+                    SoundManager.Instance.PlayScoreSound();
+                }
                 onSpriteMatch?.Invoke();
                 ResetPosition();
             }

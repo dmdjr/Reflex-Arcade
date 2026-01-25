@@ -48,13 +48,11 @@ namespace ColorTwin
 
         private void OnEnable()
         {
-            // FallingCircle.onSpriteMatch += HandleSpriteMatch;
             FallingCircle.onSpriteMismatch += HandleSpriteMismatch;
         }
 
         private void OnDisable()
         {
-            // FallingCircle.onSpriteMatch -= HandleSpriteMatch;
             FallingCircle.onSpriteMismatch -= HandleSpriteMismatch;
 
             StopAllCoroutines();
