@@ -129,6 +129,7 @@ GameObject:
   m_Component:
   - component: {fileID: 37560862}
   - component: {fileID: 37560863}
+  - component: {fileID: 37560864}
   m_Layer: 0
   m_Name: Collect Line (Green)
   m_TagString: Untagged
@@ -194,6 +195,18 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &37560864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 37560861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35e44e292baa4d3409c2771714cb9320, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &48087808
 GameObject:
   m_ObjectHideFlags: 0
@@ -610,7 +623,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d01302316eecf248a1133498c3173f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverUI: {fileID: 994328658}
 --- !u!1 &343642919
 GameObject:
   m_ObjectHideFlags: 0
@@ -1260,6 +1272,7 @@ GameObject:
   m_Component:
   - component: {fileID: 756880013}
   - component: {fileID: 756880014}
+  - component: {fileID: 756880015}
   m_Layer: 0
   m_Name: Judge Line (Green)
   m_TagString: Untagged
@@ -1325,6 +1338,18 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &756880015
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 756880012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41928318b382f8b4b82e162a6ff9b7b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &766114916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1575,6 +1600,7 @@ GameObject:
   m_Component:
   - component: {fileID: 884988479}
   - component: {fileID: 884988480}
+  - component: {fileID: 884988481}
   m_Layer: 0
   m_Name: Judge Line (Red)
   m_TagString: Untagged
@@ -1640,6 +1666,18 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &884988481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 884988478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a22d8f6cc6c7dae41a34c2ef1f7fde2a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &931046620
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,6 +2710,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1805437313}
   - component: {fileID: 1805437314}
+  - component: {fileID: 1805437315}
   m_Layer: 0
   m_Name: Collect Line (Red)
   m_TagString: Untagged
@@ -2737,6 +2776,18 @@ EdgeCollider2D:
   m_AdjacentEndPoint: {x: 0, y: 0}
   m_UseAdjacentStartPoint: 0
   m_UseAdjacentEndPoint: 0
+--- !u!114 &1805437315
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805437312}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb4636647200da469bd00348274ae09, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1854542798
 GameObject:
   m_ObjectHideFlags: 0
@@ -3065,7 +3116,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d01302316eecf248a1133498c3173f6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameOverUI: {fileID: 994328658}
 --- !u!1 &2098717871
 GameObject:
   m_ObjectHideFlags: 0
