@@ -2629,6 +2629,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1556954915}
     m_Modifications:
+    - target: {fileID: 901426041819768435, guid: 60869a6d250044743a751adbc49fda8b, type: 3}
+      propertyPath: inGameScorePanel
+      value: 
+      objectReference: {fileID: 338401075}
     - target: {fileID: 8760722720611723121, guid: 60869a6d250044743a751adbc49fda8b, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
