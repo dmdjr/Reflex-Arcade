@@ -29,6 +29,7 @@ public class GameoverUI : MonoBehaviour
             bestScoreText.text = "Best " + bestScore.ToString();
         }
 
+        // 인게임 점수판 비활성화
         if (inGameScorePanel != null)
         {
             inGameScorePanel.SetActive(false);

@@ -27,7 +27,7 @@ namespace GravitySplit
             // 해당 게임 타입의 튜토리얼을 처음 보는지 확인 후 열기
             if (DataManager.Instance != null && DataManager.Instance.IsFirstSeen(GameType.GravitySplit))
             {
-                tutorialUI.Open(GameType.GravitySplit,StartGame);
+                tutorialUI.Open(GameType.GravitySplit, StartGame);
             }
 
             // 튜토리얼을 봤다면 UI 열지않고 바로 게임 시작
@@ -45,7 +45,10 @@ namespace GravitySplit
             {
                 scoreText.text = currentScore.ToString();
             }
-            Debug.Log("점수 획득! 현재 점수: " + currentScore);
+            if (SoundManager.Instance != null)
+            {
+                SoundManager.Instance.PlayScoreSound();
+            }
         }
 
         public void GameOver()
@@ -69,7 +72,7 @@ namespace GravitySplit
                 scoreUI.ShowResult(currentScore, bestScore);
             }
         }
-        
+
     }
 
 }
