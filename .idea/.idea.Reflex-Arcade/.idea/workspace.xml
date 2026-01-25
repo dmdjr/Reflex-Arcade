@@ -5,21 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0e55de1-7545-40bf-9d7f-f8a5322d11ff" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Reflex-Arcade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Reflex-Arcade/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/01. Scenes/01. GamePlay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/01. Scenes/01. GamePlay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/ObstacleFall.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/Obstacle.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/ObstacleFall.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/Obstacle.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/ObstacleSetter.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/ObstacleSetter.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/ObstacleSpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/ObstacleManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/ObstacleSpawner.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/ObstacleManager.cs.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/PlayerNodeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/PlayerNodeManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/ScoreManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/ScoreManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/04. Prefabs/Inside Out/Green Obstacle(Base).prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/04. Prefabs/Inside Out/Green Obstacle(Base).prefab.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/04. Prefabs/Inside Out/Red Obstacle(Base).prefab" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/04. Prefabs/Inside Out/Red Obstacle(Base).prefab.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/GvhProjectSettings.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,7 +103,7 @@
       <workItem from="1767745965315" duration="7994000" />
       <workItem from="1767773512148" duration="2533000" />
       <workItem from="1769340579492" duration="1908000" />
-      <workItem from="1769342584833" duration="6863000" />
+      <workItem from="1769342584833" duration="7454000" />
     </task>
     <servers />
   </component>
