@@ -1,74 +1,56 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerNodeManager : MonoBehaviour
 {
-    private enum NodeState
-    {
-        Left,
-        Right
-    };
+    private enum NodeState { Left, Right };
     
     [SerializeField] private GameObject leftNode;
     [SerializeField] private GameObject rightNode;
-
-    [SerializeField] private NodeState leftNodeState;
-    [SerializeField] private NodeState rightNodeState;
-
     [SerializeField] private Transform[] centerPoints;
-    
-    void Awake()
-    {
-        if (leftNode == null)
-            leftNode = GameObject.Find("Left Node");
-        if (rightNode == null)
-            rightNode = GameObject.Find("Right Node");
-        
-        // null 검증
-        if (leftNode == null || rightNode == null)
-            Debug.LogError("PlayerNode가 할당되지 않았습니다.");
-        
-        
-    }
-    
-    void Start()
-    {
-        // 각 노드를 바깥쪽으로 위치시켜 초기화
-        leftNodeState = NodeState.Left;
-        leftNode.transform.position = centerPoints[0].position;
-        rightNodeState = NodeState.Right;
-        rightNode.transform.position = centerPoints[3].position;
-    }
+    [SerializeField] private float moveSpeed = 10f; // Lerp 특성상 조금 조절 필요
 
-    void Update()
-    {
-        
-    }
+    private NodeState leftNodeState = NodeState.Left;
+    private NodeState rightNodeState = NodeState.Right;
 
+    private Coroutine leftMoveCoroutine;
+    private Coroutine rightMoveCoroutine;
+
+    // 왼쪽 노드 이동 명령
     public void MoveLeftNode()
     {
-        if (leftNodeState == NodeState.Left)
-        {
-            leftNodeState = NodeState.Right;
-            leftNode.transform.position = centerPoints[1].position;
-        }
-        else if (leftNodeState == NodeState.Right)
-        {
-            leftNodeState = NodeState.Left;
-            leftNode.transform.position = centerPoints[0].position;
-        }
+        // 이미 이동 중이면 기존 코루틴 중지
+        if (leftMoveCoroutine != null) StopCoroutine(leftMoveCoroutine);
+        
+        // 상태 전환 및 이동 시작
+        leftNodeState = (leftNodeState == NodeState.Left) ? NodeState.Right : NodeState.Left;
+        Vector3 targetPos = (leftNodeState == NodeState.Left) ? centerPoints[0].position : centerPoints[1].position;
+        
+        leftMoveCoroutine = StartCoroutine(MoveRoutine(leftNode.transform, targetPos));
     }
-    
+
     public void MoveRightNode()
     {
-        if (rightNodeState == NodeState.Left)
+        if (rightMoveCoroutine != null) StopCoroutine(rightMoveCoroutine);
+
+        rightNodeState = (rightNodeState == NodeState.Left) ? NodeState.Right : NodeState.Left;
+        // 오른쪽 노드용 인덱스 사용 (3번과 2번)
+        Vector3 targetPos = (rightNodeState == NodeState.Left) ? centerPoints[3].position : centerPoints[2].position;
+        
+        rightMoveCoroutine = StartCoroutine(MoveRoutine(rightNode.transform, targetPos));
+    }
+
+    // 공용 이동 루틴
+    IEnumerator MoveRoutine(Transform objTransform, Vector3 targetPos)
+    {
+        while (Vector2.Distance(objTransform.position, targetPos) > 0.01f)
         {
-            rightNodeState = NodeState.Right;
-            rightNode.transform.position = centerPoints[3].position;
+            // Time.deltaTime을 곱해 프레임 독립적인 속도 구현
+            objTransform.position = Vector3.Lerp(objTransform.position, targetPos, Time.deltaTime * moveSpeed);
+            
+            // 한 프레임을 쉬고 다음 프레임에 계속 실행 (엔진이 멈추지 않음)
+            yield return null; 
         }
-        else if (rightNodeState == NodeState.Right)
-        {
-            rightNodeState = NodeState.Left;
-            rightNode.transform.position = centerPoints[2].position;
-        }
+        objTransform.position = targetPos;
     }
 }
