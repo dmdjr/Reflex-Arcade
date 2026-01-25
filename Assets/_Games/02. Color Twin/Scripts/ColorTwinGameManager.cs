@@ -91,6 +91,10 @@ namespace ColorTwin
             // Stop game play
             Time.timeScale = 0f;
             StopAllCoroutines();
+            if (AdManager.Instance != null)
+            {
+                AdManager.Instance.ScheduleInterstitial();
+            }
         }
 
         private void HandleSpriteMismatch(FallingCircle targetCircle)
