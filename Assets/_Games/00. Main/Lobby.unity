@@ -944,7 +944,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   config: {fileID: 11400000, guid: 694a58ae5830a4fd090701df78d2773f, type: 2}
-  prerequisiteGames: 01000000
+  prerequisiteGames: 0000000001000000
   lockIcon: {fileID: 1318644469}
   playButton: {fileID: 1823750690}
 --- !u!1 &984648215
