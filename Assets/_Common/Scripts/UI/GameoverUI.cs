@@ -38,12 +38,14 @@ public class GameoverUI : MonoBehaviour
 
     public void OnClickRestart()
     {
+        gameObject.SetActive(false);
         Time.timeScale = 1f;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     public void OnClickHome()
     {
+        gameObject.SetActive(false);
         Time.timeScale = 1f;
         SceneManager.LoadScene("Lobby");
     }
