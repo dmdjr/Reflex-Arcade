@@ -1264,7 +1264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba2fc50bbb8c4714bb9736e42fb2dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 1000
+  fallSpeed: 1250
   resetYPos: 1325.5
   appearanceRate: 1
   target: {fileID: 164646885}
@@ -1563,7 +1563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba2fc50bbb8c4714bb9736e42fb2dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 1000
+  fallSpeed: 1250
   resetYPos: 1325.5
   appearanceRate: 1
   target: {fileID: 535893276}
@@ -1744,7 +1744,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba2fc50bbb8c4714bb9736e42fb2dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 1000
+  fallSpeed: 1250
   resetYPos: 1325.5
   appearanceRate: 1
   target: {fileID: 164646885}
@@ -1803,7 +1803,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba2fc50bbb8c4714bb9736e42fb2dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 1000
+  fallSpeed: 1250
   resetYPos: 1325.5
   appearanceRate: 1
   target: {fileID: 535893276}
@@ -2125,7 +2125,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba2fc50bbb8c4714bb9736e42fb2dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 1000
+  fallSpeed: 1250
   resetYPos: 1325.5
   appearanceRate: 1
   target: {fileID: 535893276}
@@ -2392,7 +2392,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba2fc50bbb8c4714bb9736e42fb2dff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fallSpeed: 1000
+  fallSpeed: 1250
   resetYPos: 1325.5
   appearanceRate: 1
   target: {fileID: 164646885}
