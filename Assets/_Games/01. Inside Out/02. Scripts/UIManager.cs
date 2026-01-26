@@ -50,6 +50,16 @@ public class UIManager : MonoBehaviour
             RealGameStart();
         }
     }
+    void Update()
+    {
+        // 1. 게임 오버 UI가 켜져 있고 (게임이 끝난 상태)
+        // 2. 그런데 시간이 흐르고 있다면? (광고 닫고 나서 애드몹이 시간을 1로 돌려버림)
+        if (gameOverUI != null && gameOverUI.gameObject.activeSelf && Time.timeScale > 0f)
+        {
+            // "어딜 감히! 멈춰!" -> 강제로 다시 0으로 고정
+            Time.timeScale = 0f;
+        }
+    }
     private void RealGameStart()
     {
         Time.timeScale = 1f;
@@ -68,7 +78,7 @@ public class UIManager : MonoBehaviour
     {
         currentScore++;
         scoreText.text = currentScore.ToString();
-        
+
         if (SoundManager.Instance != null)
         {
             SoundManager.Instance.PlayScoreSound();
@@ -94,7 +104,11 @@ public class UIManager : MonoBehaviour
             gameOverUI.gameObject.SetActive(true); // 패널 켜기
             gameOverUI.ShowResult(currentScore, bestScore); // 점수 갱신
         }
+        if (AdManager.Instance != null)
+        {
+            AdManager.Instance.ScheduleInterstitial();
+        }
     }
 
-   
+
 }
