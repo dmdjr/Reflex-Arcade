@@ -89,17 +89,18 @@ public class UIManager : MonoBehaviour
         Time.timeScale = 0;
         scoreText.gameObject.SetActive(false);
         int bestScore = 0;
+        bool isNewRecord = false;
+
         if (DataManager.Instance != null)
         {
-            // 현재 점수 저장 시도
-            DataManager.Instance.CheckAndSaveBestScore(GameType.InsideOut, currentScore);
-            // 최고 점수 가져오기
+            isNewRecord = DataManager.Instance.CheckAndSaveBestScore(GameType.InsideOut, currentScore);
+            
             bestScore = DataManager.Instance.GetBestScore(GameType.InsideOut);
         }
         if (gameOverUI != null)
         {
             gameOverUI.gameObject.SetActive(true); // 패널 켜기
-            gameOverUI.ShowResult(currentScore, bestScore); // 점수 갱신
+            gameOverUI.ShowResult(currentScore, bestScore, isNewRecord); // 점수 갱신
         }
         if (AdManager.Instance != null)
         {

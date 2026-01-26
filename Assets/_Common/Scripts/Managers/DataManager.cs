@@ -29,14 +29,16 @@ public class DataManager : MonoBehaviour
     }
 
     // 점수 저장 및 불러오기
-    public void CheckAndSaveBestScore(GameType type, int score)
+    public bool CheckAndSaveBestScore(GameType type, int score)
     {
         int currentScore = GetBestScore(type);
         if (score > currentScore)
         {
             PlayerPrefs.SetInt("BestScore_" + type.ToString(), score);
             PlayerPrefs.Save();
+            return true;
         }
+        return false;
     }
     public int GetBestScore(GameType type)
     {

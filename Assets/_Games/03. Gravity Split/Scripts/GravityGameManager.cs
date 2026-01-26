@@ -57,10 +57,11 @@ namespace GravitySplit
             IsGameRunning = false;
             Time.timeScale = 0f;
             int bestScore = 0;
+            bool isNewRecord = false;
 
             if (DataManager.Instance != null)
             {
-                DataManager.Instance.CheckAndSaveBestScore(GameType.GravitySplit, currentScore);
+                isNewRecord = DataManager.Instance.CheckAndSaveBestScore(GameType.GravitySplit, currentScore);
             }
 
             if (DataManager.Instance != null)
@@ -71,7 +72,7 @@ namespace GravitySplit
             if (gameOverUI != null)
             {
                 gameOverUI.SetActive(true);
-                scoreUI.ShowResult(currentScore, bestScore);
+                scoreUI.ShowResult(currentScore, bestScore, isNewRecord);
             }
 
             if (AdManager.Instance != null)

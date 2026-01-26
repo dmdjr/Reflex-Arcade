@@ -7,7 +7,7 @@ namespace ColorTwin
     {
         [SerializeField] private TextMeshProUGUI scoreText;
         [SerializeField] private GameObject gameOverUI;
-        
+
         public int Score { get; private set; }
 
         void Start()
@@ -41,21 +41,31 @@ namespace ColorTwin
             Score++;
         }
 
-        private void SaveScore()
-        {
-            DataManager.Instance.CheckAndSaveBestScore(GameType.ColorTwin, Score);
-        }
-
-        private void ShowGameOverUI()
+        private bool SaveScore()
         {
             if (DataManager.Instance != null)
             {
-                int bestScore = DataManager.Instance.GetBestScore(GameType.ColorTwin);
-                gameOverUI.GetComponent<GameoverUI>().ShowResult(Score, bestScore);
+                return DataManager.Instance.CheckAndSaveBestScore(GameType.ColorTwin, Score);
             }
+            return false;
+        }
 
+        private void ShowGameOverUI(bool isNewRecord)
+        {
             if (gameOverUI != null)
                 gameOverUI.SetActive(true);
+
+            if (DataManager.Instance != null)
+            {
+                int bestScore = DataManager.Instance.GetBestScore(GameType.ColorTwin);
+                
+                if (gameOverUI != null)
+                {
+                    gameOverUI.GetComponent<GameoverUI>().ShowResult(Score, bestScore, isNewRecord);
+                }
+            }
+
+
         }
 
         private void HandleSpriteMatch()
@@ -67,8 +77,8 @@ namespace ColorTwin
         private void HandleMisSpriteMatch(FallingCircle targetCircle)
         {
             if (targetCircle == null) return;
-            SaveScore();
-            ShowGameOverUI();
+            bool isNewRecord = SaveScore();
+            ShowGameOverUI(isNewRecord);
         }
     }
 }

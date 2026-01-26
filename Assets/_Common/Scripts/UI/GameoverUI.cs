@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+using System.Collections;
 
 /* ======================================================================
 /* 게임 오버 시 결과 화면(UI) 표시 및 씬 이동(재시작, 로비) 버튼 입력을 처리하는 클래스
@@ -18,7 +18,7 @@ public class GameoverUI : MonoBehaviour
 
     [SerializeField] private GameObject inGameScorePanel; // 상단 점수 UI (ScoreBar) 연결용
 
-    public void ShowResult(int currentScore, int bestScore)
+    public void ShowResult(int currentScore, int bestScore, bool isNewRecord)
     {
         if (currentScoreText != null)
         {
@@ -27,6 +27,15 @@ public class GameoverUI : MonoBehaviour
         if (bestScoreText != null)
         {
             bestScoreText.text = "Best " + bestScore.ToString();
+
+            if (isNewRecord)
+            {
+                StartCoroutine(PulseRoutine(bestScoreText.transform));
+            }
+            else
+            {
+                bestScoreText.transform.localScale = Vector3.one; // 크기 초기화
+            }
         }
 
         // 인게임 점수판 비활성화
@@ -35,7 +44,26 @@ public class GameoverUI : MonoBehaviour
             inGameScorePanel.SetActive(false);
         }
     }
+    IEnumerator PulseRoutine(Transform target)
+    {
+        Vector3 originalScale = Vector3.one;
+        Vector3 targetScale = originalScale * 1.2f; 
 
+        float speed = 5f; 
+        float time = 0f;
+
+        while (true)
+        {
+            if (target == null || !gameObject.activeSelf) yield break;
+
+            float t = Mathf.PingPong(time * speed, 1f);
+
+            target.localScale = Vector3.Lerp(originalScale, targetScale, t);
+
+            time += Time.unscaledDeltaTime;
+            yield return null;
+        }
+    }
     public void OnClickRestart()
     {
         gameObject.SetActive(false);
