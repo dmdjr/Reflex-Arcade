@@ -68,6 +68,11 @@ public class UIManager : MonoBehaviour
     {
         currentScore++;
         scoreText.text = currentScore.ToString();
+        
+        if (SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlayScoreSound();
+        }
     }
 
 

@@ -16,6 +16,10 @@ public class PlayerNode : MonoBehaviour
     {
         if (other.CompareTag("Obstacle"))
         {
+            if (HitEffect.Instance != null)
+            {
+                HitEffect.Instance.PlayHighlight(other.transform);
+            }
             uiManager.GameOver();
         }
     }
