@@ -778,3 +778,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currentScoreText: {fileID: 7838132032525800591}
   bestScoreText: {fileID: 6515658622259958369}
+  inGameScorePanel: {fileID: 0}
