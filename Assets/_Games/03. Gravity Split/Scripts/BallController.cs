@@ -16,7 +16,17 @@ namespace GravitySplit
         }
         void Update()
         {
+
+            if (GravityGameManager.Instance.IsGameRunning == false)
+            {
+                if (rb.simulated) rb.simulated = false; // 물리 시뮬레이션 중단
+                return;
+            }
             if (GravityGameManager.Instance.IsGameRunning == false) return;
+
+            // 게임이 다시 시작되거나 실행 중이면 시뮬레이션 활성화
+            if (!rb.simulated) rb.simulated = true;
+
 #if UNITY_EDITOR
             // 에디터 테스트용
             if (Input.GetMouseButtonDown(0))
@@ -72,6 +82,8 @@ namespace GravitySplit
             if (collision.gameObject.CompareTag("Obstacle"))
             {
                 GravityGameManager.Instance.GameOver();
+                rb.linearVelocity = Vector2.zero;
+                rb.simulated = false;
                 HitEffect.Instance.PlayHighlight(collision.transform);
             }
         }

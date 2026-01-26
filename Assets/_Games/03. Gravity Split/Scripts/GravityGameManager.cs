@@ -51,8 +51,10 @@ namespace GravitySplit
             }
         }
 
+
         public void GameOver()
         {
+            IsGameRunning = false;
             Time.timeScale = 0f;
             int bestScore = 0;
 
@@ -65,7 +67,7 @@ namespace GravitySplit
             {
                 bestScore = DataManager.Instance.GetBestScore(GameType.GravitySplit);
             }
-            
+
             if (gameOverUI != null)
             {
                 gameOverUI.SetActive(true);
@@ -77,7 +79,6 @@ namespace GravitySplit
                 AdManager.Instance.ScheduleInterstitial();
             }
         }
-
     }
 
 }
