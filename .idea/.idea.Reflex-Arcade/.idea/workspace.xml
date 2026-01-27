@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a0e55de1-7545-40bf-9d7f-f8a5322d11ff" name="변경" comment="">
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/01. Scenes/01. GamePlay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/01. Scenes/01. GamePlay.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Reflex-Arcade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Reflex-Arcade/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/PlayerNodeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/PlayerNodeManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_System/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_System/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,7 +105,7 @@
       <workItem from="1767773512148" duration="2533000" />
       <workItem from="1769340579492" duration="1908000" />
       <workItem from="1769342584833" duration="7454000" />
-      <workItem from="1769498455972" duration="43000" />
+      <workItem from="1769498455972" duration="1110000" />
     </task>
     <servers />
   </component>

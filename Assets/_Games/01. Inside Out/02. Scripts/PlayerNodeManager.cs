@@ -10,11 +10,17 @@ public class PlayerNodeManager : MonoBehaviour
     [SerializeField] private Transform[] centerPoints;
     [SerializeField] private float moveSpeed = 10f; // Lerp 특성상 조금 조절 필요
 
-    private NodeState leftNodeState = NodeState.Left;
-    private NodeState rightNodeState = NodeState.Right;
+    private NodeState leftNodeState;
+    private NodeState rightNodeState;
 
     private Coroutine leftMoveCoroutine;
     private Coroutine rightMoveCoroutine;
+
+    void Start()
+    {
+        leftNodeState = NodeState.Left;
+        rightNodeState = NodeState.Right;
+    }
 
     // 왼쪽 노드 이동 명령
     public void MoveLeftNode()
@@ -35,7 +41,7 @@ public class PlayerNodeManager : MonoBehaviour
 
         rightNodeState = (rightNodeState == NodeState.Left) ? NodeState.Right : NodeState.Left;
         // 오른쪽 노드용 인덱스 사용 (3번과 2번)
-        Vector3 targetPos = (rightNodeState == NodeState.Left) ? centerPoints[3].position : centerPoints[2].position;
+        Vector3 targetPos = (rightNodeState == NodeState.Right) ? centerPoints[3].position : centerPoints[2].position;
         
         rightMoveCoroutine = StartCoroutine(MoveRoutine(rightNode.transform, targetPos));
     }
