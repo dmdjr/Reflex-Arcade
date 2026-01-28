@@ -8,7 +8,7 @@ public class PlayerNodeManager : MonoBehaviour
     [SerializeField] private GameObject leftNode;
     [SerializeField] private GameObject rightNode;
     [SerializeField] private Transform[] centerPoints;
-    [SerializeField] private float moveSpeed = 10f; // Lerp 특성상 조금 조절 필요
+    [SerializeField] private float moveSpeed = 90f; // Lerp 특성상 조금 조절 필요
 
     private NodeState leftNodeState;
     private NodeState rightNodeState;
@@ -46,16 +46,57 @@ public class PlayerNodeManager : MonoBehaviour
         rightMoveCoroutine = StartCoroutine(MoveRoutine(rightNode.transform, targetPos));
     }
 
+    // !!! 겹치고 나서 게임이 정지됨 !!!
     // 공용 이동 루틴
+    // IEnumerator MoveRoutine(Transform objTransform, Vector3 targetPos)
+    // {
+    //     while (Vector2.Distance(objTransform.position, targetPos) > 0.01f)
+    //     {
+    //         // Time.deltaTime을 곱해 프레임 독립적인 속도 구현
+    //         objTransform.position = Vector3.Lerp(objTransform.position, targetPos, Time.deltaTime * moveSpeed);
+    //         
+    //         // 한 프레임을 쉬고 다음 프레임에 계속 실행 (엔진이 멈추지 않음)
+    //         yield return null; 
+    //     }
+    //     objTransform.position = targetPos;
+    // }
+    
     IEnumerator MoveRoutine(Transform objTransform, Vector3 targetPos)
     {
+        // 성능을 위해 장애물 목록을 미리 가져오는 것을 권장합니다.
+        GameObject[] obstacles = GameObject.FindGameObjectsWithTag("Obstacle");
+        float stoppingDistance = 1f;
+
         while (Vector2.Distance(objTransform.position, targetPos) > 0.01f)
         {
-            // Time.deltaTime을 곱해 프레임 독립적인 속도 구현
-            objTransform.position = Vector3.Lerp(objTransform.position, targetPos, Time.deltaTime * moveSpeed);
-            
-            // 한 프레임을 쉬고 다음 프레임에 계속 실행 (엔진이 멈추지 않음)
-            yield return null; 
+            Vector3 currentPos = objTransform.position;
+            Vector3 nextPos = Vector3.Lerp(currentPos, targetPos, Time.deltaTime * moveSpeed);
+
+            foreach (GameObject obstacle in obstacles)
+            {
+                if (obstacle == null) continue;
+
+                float nextDist = Vector2.Distance(nextPos, obstacle.transform.position);
+
+                // 다음 프레임에 1.075보다 가까워진다면?
+                if (nextDist < stoppingDistance)
+                {
+                    // 1. 방향 벡터 계산 (장애물 중심 -> 플레이어 중심)
+                    Vector3 directionToPlayer = (currentPos - obstacle.transform.position).normalized;
+
+                    objTransform.position = obstacle.transform.position + (directionToPlayer * stoppingDistance);
+
+                    if (HitEffect.Instance != null)
+                        HitEffect.Instance.PlayHighlight(obstacle.transform);
+
+                    FindFirstObjectByType<UIManager>().GameOver();
+                    yield break; 
+                }
+            }
+
+            // 안전한 경우에만 이동
+            objTransform.position = nextPos;
+            yield return null;
         }
         objTransform.position = targetPos;
     }

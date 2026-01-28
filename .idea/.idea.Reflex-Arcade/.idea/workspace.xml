@@ -6,10 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a0e55de1-7545-40bf-9d7f-f8a5322d11ff" name="변경" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Reflex-Arcade/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Reflex-Arcade/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Banners/ADAPTIVE.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Banners/ADAPTIVE.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Interstitials/768x1024.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/GoogleMobileAds/Editor/Resources/PlaceholderAds/Interstitials/768x1024.prefab" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/01. Scenes/01. GamePlay.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/01. Scenes/01. GamePlay.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/ObstacleManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/ObstacleManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/UIManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/UIManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/_System/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_System/TextMesh Pro/Resources/Fonts &amp; Materials/LiberationSans SDF - Fallback.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/PlayerNode.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/PlayerNode.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/PlayerNodeManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/_Games/01. Inside Out/02. Scripts/PlayerNodeManager.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -109,7 +110,8 @@
       <workItem from="1769340579492" duration="1908000" />
       <workItem from="1769342584833" duration="7454000" />
       <workItem from="1769498455972" duration="1403000" />
-      <workItem from="1769584238449" duration="1188000" />
+      <workItem from="1769584238449" duration="2435000" />
+      <workItem from="1769601747476" duration="2384000" />
     </task>
     <servers />
   </component>
