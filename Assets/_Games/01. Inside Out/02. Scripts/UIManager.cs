@@ -6,7 +6,6 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     private PlayerNodeManager pnManager;
-    private ObstacleManager obManager;
 
     [SerializeField] private Button leftTouchZone;
     [SerializeField] private Button rightTouchZone;
@@ -17,12 +16,11 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private TutorialUI tutorialUI;
 
-    private int currentScore = 0;
+    private int currentScore;
 
     void Awake()
     {
         pnManager = FindFirstObjectByType<PlayerNodeManager>();
-        obManager = FindFirstObjectByType<ObstacleManager>();
     }
 
     void Start()
@@ -30,8 +28,8 @@ public class UIManager : MonoBehaviour
         currentScore = 0;
         scoreText.text = currentScore.ToString();
 
-        leftTouchZone.onClick.AddListener(onLeftClick);
-        rightTouchZone.onClick.AddListener(onRightClick);
+        leftTouchZone.onClick.AddListener(() => pnManager.MoveLeftNode());
+        rightTouchZone.onClick.AddListener(() => pnManager.MoveRightNode());
 
 
         Time.timeScale = 0f;
@@ -50,6 +48,7 @@ public class UIManager : MonoBehaviour
             RealGameStart();
         }
     }
+    
     void Update()
     {
         if (gameOverUI != null && gameOverUI.gameObject.activeSelf && Time.timeScale > 0f)
@@ -57,18 +56,10 @@ public class UIManager : MonoBehaviour
             Time.timeScale = 0f;
         }
     }
+    
     private void RealGameStart()
     {
         Time.timeScale = 1f;
-    }
-    private void onLeftClick()
-    {
-        pnManager.MoveLeftNode();
-    }
-
-    private void onRightClick()
-    {
-        pnManager.MoveRightNode();
     }
 
     public void AddScoreOnce()
@@ -81,9 +72,7 @@ public class UIManager : MonoBehaviour
             SoundManager.Instance.PlayScoreSound();
         }
     }
-
-
-
+    
     public void GameOver()
     {
         Time.timeScale = 0;
