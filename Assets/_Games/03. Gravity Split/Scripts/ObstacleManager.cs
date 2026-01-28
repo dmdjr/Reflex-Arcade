@@ -42,7 +42,7 @@ namespace GravitySplit
                 float randomY = yCandidates[Random.Range(0, yCandidates.Length)];
                 obj.transform.position = new Vector3(currentX, randomY, 0);
                 list.Add(obj);
-                float randomGap = Random.Range(2f, 4f);
+                float randomGap = Random.Range(3f, 4f);
                 currentX += randomGap;
             }
         }
@@ -77,7 +77,7 @@ namespace GravitySplit
                 }
             }
 
-            float nextGap = Random.Range(2f, 4f);
+            float nextGap = Random.Range(3f, 4f);
 
             // 내 그룹의 Y 후보군 중에서 랜덤 선택
             float randomY = yCandidates[Random.Range(0, yCandidates.Length)];
