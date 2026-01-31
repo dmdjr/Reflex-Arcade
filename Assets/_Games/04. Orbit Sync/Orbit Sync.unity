@@ -1829,9 +1829,9 @@ MonoBehaviour:
   greenPrefab: {fileID: 8341856662921448625, guid: 9424e1ff5b08947d8bb995e5129e5804, type: 3}
   bluePrefab: {fileID: 830540212690256179, guid: 96f459f59ccbd4810be11a359d8ff725, type: 3}
   spawnYDistance: 6
-  minSpawnInterval: 1
-  maxSpawnInterval: 2
-  circleSpeed: 1.5
+  minSpawnInterval: 0.7
+  maxSpawnInterval: 1
+  circleSpeed: 1.7
 --- !u!4 &2105832791
 Transform:
   m_ObjectHideFlags: 0
