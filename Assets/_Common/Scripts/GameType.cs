@@ -1,6 +1,7 @@
 public enum GameType
 {
-    InsideOut,   
-    ColorTwin,   
-    GravitySplit 
+    InsideOut,
+    ColorTwin,
+    GravitySplit,
+    OrbitSync
 }

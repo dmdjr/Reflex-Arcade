@@ -20,6 +20,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Games/03. Gravity Split/Gravity Split.unity
     guid: cff26d8a21ec344588f31210bc2cc6c8
+  - enabled: 1
+    path: Assets/_Games/04. Orbit Sync/Orbit Sync.unity
+    guid: be0089f86f86b4addb148b2b8729e209
   m_configObjects:
     UnityEditor.XR.VisionOS.VisionOSSettings: {fileID: 11400000, guid: 1bb01724dc6cc4d14a3c75c5aef4b841, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

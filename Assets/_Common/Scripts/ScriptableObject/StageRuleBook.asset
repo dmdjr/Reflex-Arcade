@@ -18,4 +18,6 @@ MonoBehaviour:
   - gameType: 1
     requiredScore: 1
   - gameType: 2
+    requiredScore: 1
+  - gameType: 3
     requiredScore: 9999
