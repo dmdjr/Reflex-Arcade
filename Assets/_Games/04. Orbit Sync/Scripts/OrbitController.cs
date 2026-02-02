@@ -7,28 +7,33 @@ public class OrbitController : MonoBehaviour
     [SerializeField] private TouchInputHandler inputHandler;
 
     [SerializeField] private ControlSide controlSide;
-    [SerializeField] private float rotateSpeed = 200f;
-    [SerializeField] private bool rotateClockwise = true;
+
+    [SerializeField] private float activeRotateSpeed = 200f;
+    [SerializeField] private float idleRotateSpeed = 100f;
+
+    [SerializeField] private bool activeClockwise = true;
 
     private void Update()
     {
         if (OrbitSyncManager.Instance != null && !OrbitSyncManager.Instance.IsGameRunning)
             return;
+
         if (inputHandler == null) return;
 
         bool isPressed = (controlSide == ControlSide.Left)
             ? inputHandler.IsLeftPressed
             : inputHandler.IsRightPressed;
 
-        if (isPressed)
-        {
-            RotateOrbit();
-        }
+        float currentSpeed = isPressed ? activeRotateSpeed : idleRotateSpeed;
+
+        bool currentIsClockwise = isPressed ? activeClockwise : !activeClockwise;
+
+        RotateOrbit(currentIsClockwise, currentSpeed);
     }
 
-    private void RotateOrbit()
+    private void RotateOrbit(bool isClockwise, float speed)
     {
-        float direction = rotateClockwise ? -1f : 1f;
-        transform.Rotate(0, 0, direction * rotateSpeed * Time.deltaTime);
+        float direction = isClockwise ? -1f : 1f;
+        transform.Rotate(0, 0, direction * speed * Time.deltaTime);
     }
 }

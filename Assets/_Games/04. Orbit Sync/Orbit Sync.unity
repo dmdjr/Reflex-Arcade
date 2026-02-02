@@ -606,7 +606,7 @@ MonoBehaviour:
   inputHandler: {fileID: 161085449}
   controlSide: 1
   rotateSpeed: 200
-  rotateClockwise: 1
+  activeClockwise: 1
 --- !u!1 &586408507
 GameObject:
   m_ObjectHideFlags: 0
@@ -1115,7 +1115,7 @@ MonoBehaviour:
   inputHandler: {fileID: 161085449}
   controlSide: 0
   rotateSpeed: 200
-  rotateClockwise: 0
+  activeClockwise: 0
 --- !u!1 &1270572060
 GameObject:
   m_ObjectHideFlags: 0

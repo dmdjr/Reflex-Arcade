@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rules:
   - gameType: 0
-    requiredScore: 1
+    requiredScore: 120
   - gameType: 1
-    requiredScore: 1
+    requiredScore: 80
   - gameType: 2
-    requiredScore: 1
+    requiredScore: 100
   - gameType: 3
     requiredScore: 9999
