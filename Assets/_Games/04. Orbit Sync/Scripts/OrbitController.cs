@@ -12,6 +12,8 @@ public class OrbitController : MonoBehaviour
 
     private void Update()
     {
+        if (OrbitSyncManager.Instance != null && !OrbitSyncManager.Instance.IsGameRunning)
+            return;
         if (inputHandler == null) return;
 
         bool isPressed = (controlSide == ControlSide.Left)

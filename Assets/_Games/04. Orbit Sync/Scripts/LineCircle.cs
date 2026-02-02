@@ -4,7 +4,7 @@ public class LineCircle : MonoBehaviour
 {
     public enum CircleType { Red, Green, Blue }
 
-    [SerializeField] private CircleType circleType; 
+    [SerializeField] private CircleType circleType;
 
     private float moveSpeed;
     private Vector3 moveDirection;
@@ -23,6 +23,8 @@ public class LineCircle : MonoBehaviour
 
     private void Update()
     {
+        if (OrbitSyncManager.Instance != null && !OrbitSyncManager.Instance.IsGameRunning)
+            return;
         transform.Translate(moveDirection * moveSpeed * Time.deltaTime);
     }
 
