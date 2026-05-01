@@ -18,20 +18,20 @@ MonoBehaviour:
   - targetGame: 2
     conditions:
     - sourceGame: 0
-      requiredScore: 1
+      requiredScore: 120
     - sourceGame: 1
-      requiredScore: 1
+      requiredScore: 80
   - targetGame: 3
     conditions:
     - sourceGame: 0
-      requiredScore: 2
+      requiredScore: 160
     - sourceGame: 1
-      requiredScore: 2
+      requiredScore: 120
     - sourceGame: 2
-      requiredScore: 2
+      requiredScore: 80
   - targetGame: 4
     conditions:
     - sourceGame: 2
-      requiredScore: 5
+      requiredScore: 120
     - sourceGame: 3
-      requiredScore: 5
+      requiredScore: 80
